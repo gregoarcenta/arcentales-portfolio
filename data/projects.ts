@@ -4,7 +4,7 @@ export interface Project {
   description: string;
   problem: string;
   keyFeatures: string[];
-  technologies: string[];
+  technologies: Technologies[];
   how: string;
   image: string;
   demoUrl?: string;
@@ -17,6 +17,22 @@ export interface Project {
     mobile: string;
   };
 }
+
+export type Technologies =
+  | "Angular"
+  | "React"
+  | "Next.js"
+  | "Tailwind"
+  | "Bootstrap"
+  | "Shadcn"
+  | "Node.js"
+  | "Nest.js"
+  | "TypeScript"
+  | "Docker"
+  | "PostgreSQL"
+  | "SQL server"
+  | "Stripe"
+  | "Java";
 
 export const projects: Project[] = [
   {

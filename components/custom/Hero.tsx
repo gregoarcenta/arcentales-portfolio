@@ -1,26 +1,29 @@
 import {
-  Code2,
   Braces,
-  Terminal,
+  Code2,
+  Cpu,
   Database,
   GitBranch,
-  Cpu,
-  TrendingUp,
-  MessageCircle,
   Github,
-  Linkedin
+  Linkedin,
+  MessageCircle,
+  Terminal,
+  TrendingUp
 } from "lucide-react";
 import { TechBackground } from "./TechBackground";
 import { Button } from "../ui/button";
 import { projects } from "@/data/projects";
 import Image from "next/image";
 import Link from "next/link";
+import { profileData } from "@/data/profile";
 
 const Hero = () => {
   //   const latestPost = blogPosts[0];
   const latestProject = projects[0];
+  const { phone, github, linkedin } = profileData;
 
   return (
+
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden py-8 px-4 bg-background">
       {/* Tech network background */}
       <TechBackground />
@@ -62,23 +65,27 @@ const Hero = () => {
       </div>
 
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-linear-to-b from-background/70 via-background/40 to-background/70 pointer-events-none" />
+      <div
+        className="absolute inset-0 bg-linear-to-b from-background/70 via-background/40 to-background/70 pointer-events-none" />
 
       {/* Animated grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(66,153,225,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(66,153,225,.03)_1px,transparent_1px)] bg-size[size:80px_80px] md:bg-size[size:100px_100px] mask-[radial-gradient(ellipse_80%_60%_at_50%_50%,#000,transparent)] opacity-40" />
+      <div
+        className="absolute inset-0 bg-[linear-gradient(rgba(66,153,225,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(66,153,225,.03)_1px,transparent_1px)] bg-size[size:80px_80px] md:bg-size[size:100px_100px] mask-[radial-gradient(ellipse_80%_60%_at_50%_50%,#000,transparent)] opacity-40" />
 
       <div className="container mx-auto relative z-10 max-w-7xl mt-2 md:mt-14">
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Left Column - Main Intro */}
           <div className="lg:col-span-2 space-y-6 md:space-y-8 animate-fade-in">
             <div className="inline-block">
-              <span className="glass-card px-6 py-2 rounded-full text-sm font-medium text-secondary inline-flex items-center gap-2">
+              <span
+                className="glass-card px-6 py-2 rounded-full text-sm font-medium text-secondary inline-flex items-center gap-2">
                 <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
                 Disponible para proyectos freelance
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground max-w-4xl">
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground max-w-4xl">
               <span className="block gradient-text">Full Stack Developer.</span>
               <span className="block text-foreground mt-2">
                 Transformando ideas en software rentable.
@@ -94,7 +101,7 @@ const Hero = () => {
               <Link href="/projects" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="group bg-linear-to-r from-[hsl(212,100%,48%)] to-[hsl(212,100%,58%)] hover:shadow-[0_0_40px_hsl(212,100%,58%,0.6)] transition-all duration-300 hover-lift px-6 md:px-8 w-full text-white border-0"
+                  className="cursor-pointer group bg-linear-to-r from-[hsl(212,100%,48%)] to-[hsl(212,100%,58%)] hover:shadow-[0_0_40px_hsl(212,100%,58%,0.6)] transition-all duration-300 hover-lift px-6 md:px-8 w-full text-white border-0"
                 >
                   <TrendingUp className="mr-2 h-4 md:h-5 w-4 md:w-5" />
                   Explora mi Trabajo
@@ -104,11 +111,11 @@ const Hero = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="group border-2 border-foreground/20 bg-transparent hover:bg-foreground/5 hover:border-foreground/40 transition-all duration-300 px-6 md:px-8 w-full sm:w-auto text-foreground"
+                className="group border-2 border-green-300 bg-transparent hover:bg-green-300/10 hover:accent-green-300/40 transition-all duration-300 hover-lift px-6 md:px-8 w-full sm:w-auto text-foreground"
                 asChild
               >
                 <a
-                  href="https://wa.me/1234567890"
+                  href={`https://wa.me/${phone}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -120,7 +127,7 @@ const Hero = () => {
 
             <div className="flex items-center gap-3 md:gap-4 pt-2 md:pt-4">
               <a
-                href="https://github.com"
+                href={github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card p-2.5 md:p-3 rounded-full hover:bg-primary/20 hover:shadow-glow-primary transition-all duration-300 hover-lift"
@@ -128,7 +135,7 @@ const Hero = () => {
                 <Github className="h-4 md:h-5 w-4 md:w-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card p-2.5 md:p-3 rounded-full hover:bg-secondary/20 hover:shadow-glow-secondary transition-all duration-300 hover-lift"
@@ -159,7 +166,8 @@ const Hero = () => {
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-background to-transparent" />
                   </div>
-                  <h4 className="font-bold text-sm md:text-base text-foreground mb-1 md:mb-2 group-hover:text-primary transition-colors">
+                  <h4
+                    className="font-bold text-sm md:text-base text-foreground mb-1 md:mb-2 group-hover:text-primary transition-colors">
                     {latestProject.title}
                   </h4>
                   <p className="text-xs md:text-sm text-muted-foreground line-clamp-2">

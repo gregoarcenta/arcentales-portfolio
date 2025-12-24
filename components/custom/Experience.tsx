@@ -2,23 +2,19 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { experienceData } from "@/data/experience";
-import {
-  Briefcase,
-  Award,
-  Code2,
-  ExternalLink,
-  ChevronDown,
-  ChevronUp
-} from "lucide-react";
+import { certificatesData, experienceData } from "@/data/experience";
+import { Award, Briefcase, ChevronDown, ChevronUp, Code2, ExternalLink, GraduationCap } from "lucide-react";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+
 const Experience = () => {
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const getIcon = (type: string) => {
     switch (type) {
       case "work":
         return <Briefcase className="h-5 w-5" />;
+      case "practices":
+        return <GraduationCap className="h-5 w-5" />;
       case "certificate":
         return <Award className="h-5 w-5" />;
       case "freelance":
@@ -31,6 +27,8 @@ const Experience = () => {
     switch (type) {
       case "work":
         return "Experiencia Laboral";
+      case "practices":
+        return "Contrato de practicas";
       case "certificate":
         return "Certificación";
       case "freelance":
@@ -41,12 +39,9 @@ const Experience = () => {
   };
 
   // Separate work experience and certificates
-  const workExperience = experienceData.filter(
-    (item) => item.type === "work" || item.type === "freelance"
-  );
-  const certificates = experienceData.filter(
-    (item) => item.type === "certificate"
-  );
+  const workExperience = experienceData;
+  const certificates = certificatesData;
+
   const visibleCertificates = showAllCertificates
     ? certificates
     : certificates.slice(0, 6);
@@ -84,7 +79,8 @@ const Experience = () => {
               {/* Timeline */}
               <div className="relative">
                 {/* Timeline line */}
-                <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-secondary to-accent" />
+                <div
+                  className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-secondary to-accent" />
 
                 <div className="space-y-6 md:space-y-8">
                   {workExperience.map((item, idx) => (
@@ -96,7 +92,8 @@ const Experience = () => {
                       }}
                     >
                       {/* Timeline dot */}
-                      <div className="absolute left-2 md:left-5 top-6 w-5 md:w-7 h-5 md:h-7 rounded-full bg-gradient-primary shadow-glow-primary flex items-center justify-center">
+                      <div
+                        className="absolute left-2 md:left-5 top-6 w-5 md:w-7 h-5 md:h-7 rounded-full bg-gradient-primary shadow-glow-primary flex items-center justify-center">
                         <div className="w-2 md:w-3 h-2 md:h-3 rounded-full bg-background" />
                       </div>
 
@@ -120,7 +117,8 @@ const Experience = () => {
 
                           {/* Title and company */}
                           <div>
-                            <h3 className="text-lg md:text-xl font-bold mb-1 group-hover:text-primary transition-colors">
+                            <h3
+                              className="text-lg md:text-xl font-bold mb-1 group-hover:text-primary transition-colors">
                               {item.title}
                             </h3>
                             {item.company && (
@@ -180,7 +178,8 @@ const Experience = () => {
                     </div>
 
                     <div>
-                      <h3 className="font-bold text-sm md:text-base mb-1 group-hover:text-accent transition-colors line-clamp-2">
+                      <h3
+                        className="font-bold text-sm md:text-base mb-1 group-hover:text-accent transition-colors line-clamp-2">
                         {cert.title}
                       </h3>
                       {cert.company && (

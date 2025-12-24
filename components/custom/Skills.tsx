@@ -1,9 +1,10 @@
-import { Badge } from "@/components/ui/badge";
-import { skillsData, currentlyLearning } from "@/data/skills";
-import { Sparkles } from "lucide-react";
+import {Badge} from "@/components/ui/badge";
+import {currentlyLearning, skillsData} from "@/data/skills";
+import {Sparkles} from "lucide-react";
+
 const Skills = () => {
   return (
-    <section className="py-20 px-4 relative overflow-hidden">
+    <section className="pb-20 px-4 relative overflow-hidden">
       <div className="container mx-auto relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {skillsData.map((category, idx) => (

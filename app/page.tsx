@@ -19,6 +19,7 @@ export default function Page() {
       {/* Scroll progress indicator */}
       <ProgressScroll />
 
+      {/* Hero section */}
       <Hero />
 
       {/* Stats Section - Projects, Technologies, Experience */}
@@ -268,6 +269,7 @@ export default function Page() {
           style={{ animationDelay: "1.5s" }}
         />
 
+        {/* About me card */}
         <div className="container mx-auto max-w-4xl relative z-10">
           <AnimatedSection animation="scale">
             <Card className="glass-card border-primary/30 bg-linear-to-r from-primary/10 via-accent/10 to-primary/10 overflow-hidden hover-lift group transform transition-all duration-500 hover:shadow-glow-primary">
@@ -287,7 +289,7 @@ export default function Page() {
                   ayudarte a transformar tus ideas en soluciones digitales de
                   impacto.
                 </p>
-                <Link href="/sobre-mi">
+                <Link href="/about">
                   <Button className="cursor-pointer bg-gradient-primary hover:shadow-glow-primary hover-lift group transform transition-all duration-300 hover:scale-105">
                     Conoce Mi Historia
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />

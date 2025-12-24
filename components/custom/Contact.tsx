@@ -1,7 +1,10 @@
-import {Card, CardContent} from "@/components/ui/card";
-import {Github, Linkedin, Mail, MessageCircle} from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { profileData } from "@/data/profile";
 
 const Contact = () => {
+  const { name, email, github, linkedin, phone} = profileData;
+  const githubUsername = github.replace("https://github.com/", "");
   return (
     <section className="px-4 relative overflow-hidden">
       {/* Background decoration */}
@@ -20,9 +23,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">WhatsApp</h3>
-                    <p className="text-muted-foreground text-sm">+593983952152</p>
+                    <p className="text-muted-foreground text-sm">+{phone}</p>
                     <a
-                      href="https://wa.me/593983952152"
+                      href={`https://wa.me/${phone}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-green-500 text-sm hover:underline inline-block mt-2"
@@ -46,11 +49,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-muted-foreground text-sm">
-                      gregoarcenta@gmail.com
-                    </p>
+                    <p className="text-muted-foreground text-sm">{email}</p>
                     <a
-                      href="mailto:gregoarcenta@gmail.com"
+                      href={`mailto:${email}`}
                       className="text-primary text-sm hover:underline inline-block mt-2"
                     >
                       Enviar email →
@@ -72,9 +73,11 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">GitHub</h3>
-                    <p className="text-muted-foreground text-sm">@gregoarcenta</p>
+                    <p className="text-muted-foreground text-sm">
+                      @{githubUsername}
+                    </p>
                     <a
-                      href="https://github.com/gregoarcenta"
+                      href={github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-secondary text-sm hover:underline inline-block mt-2"
@@ -98,9 +101,11 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">LinkedIn</h3>
-                    <p className="text-muted-foreground text-sm">Gregory Arcentales</p>
+                    <p className="text-muted-foreground text-sm">
+                      {name}
+                    </p>
                     <a
-                      href="https://linkedin.com/in/gregoarcenta"
+                      href={linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-accent text-sm hover:underline inline-block mt-2"

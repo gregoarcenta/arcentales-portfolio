@@ -1,5 +1,6 @@
-import {Code2, Github, Linkedin, Mail} from "lucide-react";
+import { Code2, Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
+import { profileData } from "@/data/profile";
 
 const currentYear = new Date().getFullYear();
 
@@ -11,6 +12,8 @@ const navItems = [
 ];
 
 export default function Footer() {
+  const { name, email, github, linkedin, phone } = profileData;
+
   return (
     <footer className="relative border-t border-border/40 bg-card/30 backdrop-blur-xl">
       <div className="container mx-auto px-4 py-12">
@@ -19,7 +22,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <Code2 className="h-6 w-6 text-primary" />
-              <span className="font-bold text-xl">Tu Nombre</span>
+              <span className="font-bold text-xl">{name}</span>
             </div>
             <p className="text-muted-foreground text-sm">
               Full Stack Developer especializado en crear soluciones web
@@ -50,7 +53,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://wa.me/593983952152"
+                  href={`https://wa.me/${phone}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
@@ -60,10 +63,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:gregoarcenta@gmail.com"
+                  href={`mailto:${email}`}
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
-                  gregoarcenta@gmail.com
+                  {email}
                 </a>
               </li>
             </ul>
@@ -74,7 +77,7 @@ export default function Footer() {
             <h3 className="font-semibold mb-4 text-foreground">Social</h3>
             <div className="flex gap-3">
               <a
-                href="https://github.com/gregoarcenta"
+                href={github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card p-2 rounded-lg hover:bg-primary/10 hover:border-primary/50 transition-all"
@@ -82,7 +85,7 @@ export default function Footer() {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com/in/gregoarcenta"
+                href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card p-2 rounded-lg hover:bg-primary/10 hover:border-primary/50 transition-all"
@@ -90,7 +93,7 @@ export default function Footer() {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="mailto:gregoarcenta@gmail.com"
+                href={`mailto:${email}`}
                 className="glass-card p-2 rounded-lg hover:bg-primary/10 hover:border-primary/50 transition-all"
               >
                 <Mail className="h-5 w-5" />
@@ -102,7 +105,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-border/40 text-center">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} Gregory Arcentales. Todos los derechos reservados.
+            © {currentYear} {name}. Todos los derechos reservados.
           </p>
         </div>
       </div>
