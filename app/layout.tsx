@@ -1,17 +1,14 @@
-import { PropsWithChildren } from "react";
-import type { Metadata } from "next";
-
-import { Inter, Space_Grotesk } from "next/font/google";
-
-export const inter = Inter({ subsets: ["latin"] });
-export const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
-
+import {PropsWithChildren} from "react";
+import type {Metadata} from "next";
 import "./globals.css";
+import {inter, spaceGrotesk} from "@/app/fonts";
 import Navbar from "@/components/custom/Navbar";
 import Footer from "@/components/custom/Footer";
 
+
 export const metadata: Metadata = {
   title: "Portfolio | Desarrollador Web Full Stack",
+
   description:
     "Portfolio profesional de desarrollador web moderno con proyectos destacados y blog técnico",
   authors: [{ name: "Developer Portfolio" }],

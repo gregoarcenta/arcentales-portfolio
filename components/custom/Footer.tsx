@@ -1,13 +1,13 @@
-import { Code2, Github, Linkedin, Mail } from "lucide-react";
+import {Code2, Github, Linkedin, Mail} from "lucide-react";
 import Link from "next/link";
 
 const currentYear = new Date().getFullYear();
 
 const navItems = [
   { name: "Inicio", path: "/" },
-  { name: "Proyectos", path: "/projectos" },
+  { name: "Proyectos", path: "/projects" },
   { name: "Blog", path: "/blog" },
-  { name: "Sobre Mí", path: "/sobre-mi" }
+  { name: "Sobre Mí", path: "/about" }
 ];
 
 export default function Footer() {
@@ -50,7 +50,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://wa.me/1234567890"
+                  href="https://wa.me/593983952152"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
@@ -60,10 +60,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:tu@email.com"
+                  href="mailto:gregoarcenta@gmail.com"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
-                  tu@email.com
+                  gregoarcenta@gmail.com
                 </a>
               </li>
             </ul>
@@ -74,7 +74,7 @@ export default function Footer() {
             <h3 className="font-semibold mb-4 text-foreground">Social</h3>
             <div className="flex gap-3">
               <a
-                href="https://github.com"
+                href="https://github.com/gregoarcenta"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card p-2 rounded-lg hover:bg-primary/10 hover:border-primary/50 transition-all"
@@ -82,7 +82,7 @@ export default function Footer() {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/gregoarcenta"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="glass-card p-2 rounded-lg hover:bg-primary/10 hover:border-primary/50 transition-all"
@@ -90,7 +90,7 @@ export default function Footer() {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="mailto:tu@email.com"
+                href="mailto:gregoarcenta@gmail.com"
                 className="glass-card p-2 rounded-lg hover:bg-primary/10 hover:border-primary/50 transition-all"
               >
                 <Mail className="h-5 w-5" />
@@ -102,7 +102,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-border/40 text-center">
           <p className="text-muted-foreground text-sm">
-            © {currentYear} Tu Nombre. Todos los derechos reservados.
+            © {currentYear} Gregory Arcentales. Todos los derechos reservados.
           </p>
         </div>
       </div>

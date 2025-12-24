@@ -1,16 +1,16 @@
 "use client";
 
-import { Code2, Menu, X } from "lucide-react";
+import {Code2, Menu, X} from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import {usePathname} from "next/navigation";
+import {useState} from "react";
 
 const navItems = [
   { path: "/", label: "Inicio" },
-  { path: "/proyectos", label: "Proyectos" },
+  { path: "/projects", label: "Proyectos" },
   { path: "/blog", label: "Blog" },
-  { path: "/sobre-mi", label: "Sobre Mí" },
-  { path: "/contacto", label: "Contacto" }
+  { path: "/about", label: "Sobre Mí" },
+  { path: "/contact", label: "Contacto" }
 ];
 
 export default function Navbar() {
