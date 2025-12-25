@@ -1,4 +1,5 @@
 "use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 
 const Experience = () => {
   const [showAllCertificates, setShowAllCertificates] = useState(false);
+
   const getIcon = (type: string) => {
     switch (type) {
       case "work":
@@ -61,13 +63,13 @@ const Experience = () => {
           <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-8 md:mb-12">
             <TabsTrigger
               value="experience"
-              className="text-sm md:text-base mx-0 my-0"
+              className="text-sm md:text-base mx-0 my-0 cursor-pointer"
             >
               Experiencia Profesional
             </TabsTrigger>
             <TabsTrigger
               value="certificates"
-              className="text-sm md:text-base mx-0 py-1.5"
+              className="text-sm md:text-base mx-0 py-1.5 cursor-pointer"
             >
               Certificaciones
             </TabsTrigger>
@@ -79,8 +81,7 @@ const Experience = () => {
               {/* Timeline */}
               <div className="relative">
                 {/* Timeline line */}
-                <div
-                  className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-secondary to-accent" />
+                <div className="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-linear-to-b from-primary via-secondary to-accent" />
 
                 <div className="space-y-6 md:space-y-8">
                   {workExperience.map((item, idx) => (
@@ -88,12 +89,11 @@ const Experience = () => {
                       key={item.id}
                       className="relative pl-12 md:pl-20 animate-slide-up"
                       style={{
-                        animationDelay: `${idx * 100}ms`
+                        animationDelay: `${idx * 100}ms`,
                       }}
                     >
                       {/* Timeline dot */}
-                      <div
-                        className="absolute left-2 md:left-5 top-6 w-5 md:w-7 h-5 md:h-7 rounded-full bg-gradient-primary shadow-glow-primary flex items-center justify-center">
+                      <div className="absolute left-2 md:left-5 top-6 w-5 md:w-7 h-5 md:h-7 rounded-full bg-gradient-primary shadow-glow-primary flex items-center justify-center">
                         <div className="w-2 md:w-3 h-2 md:h-3 rounded-full bg-background" />
                       </div>
 
@@ -117,8 +117,7 @@ const Experience = () => {
 
                           {/* Title and company */}
                           <div>
-                            <h3
-                              className="text-lg md:text-xl font-bold mb-1 group-hover:text-primary transition-colors">
+                            <h3 className="text-lg md:text-xl font-bold mb-1 group-hover:text-primary transition-colors">
                               {item.title}
                             </h3>
                             {item.company && (
@@ -164,7 +163,7 @@ const Experience = () => {
                   key={cert.id}
                   className="glass-card border-accent/20 hover-lift group animate-scale-in"
                   style={{
-                    animationDelay: `${idx * 50}ms`
+                    animationDelay: `${idx * 50}ms`,
                   }}
                 >
                   <CardContent className="p-4 md:p-5 space-y-3">
@@ -178,8 +177,7 @@ const Experience = () => {
                     </div>
 
                     <div>
-                      <h3
-                        className="font-bold text-sm md:text-base mb-1 group-hover:text-accent transition-colors line-clamp-2">
+                      <h3 className="font-bold text-sm md:text-base mb-1 group-hover:text-accent transition-colors line-clamp-2">
                         {cert.title}
                       </h3>
                       {cert.company && (
@@ -215,7 +213,7 @@ const Experience = () => {
                 <Button
                   variant="outline"
                   onClick={() => setShowAllCertificates(!showAllCertificates)}
-                  className="border-accent/50 hover:bg-accent/10 group"
+                  className="cursor-pointer border-accent/50 hover:bg-accent/10 group"
                 >
                   {showAllCertificates ? (
                     <>

@@ -5,14 +5,14 @@ import { ProgressScroll } from "@/components/custom/ProgressScroll";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { projects } from "@/data/projects";
+import { projectsData } from "@/data/projects";
 import { currentlyLearning } from "@/data/skills";
 import { ArrowRight, Sparkles, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Page() {
-  const featuredProjects = projects.slice(0, 2);
+  const featuredProjects = projectsData.slice(-2);
   // const latestPosts = blogPosts.slice(0, 3);
   return (
     <div className="min-h-screen relative">
@@ -95,7 +95,7 @@ export default function Page() {
           <AnimatedSection animation="scale">
             <div className="text-center">
               <Link href="/projects">
-                <Button className="bg-gradient-primary hover:shadow-glow-primary hover-lift group">
+                <Button className="cursor-pointer bg-gradient-primary hover:shadow-glow-primary hover-lift group">
                   Ver Todos los Proyectos
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -181,7 +181,7 @@ export default function Page() {
           <AnimatedSection animation="scale">
             <div className="text-center">
               <Link href="/blog">
-                <Button className="bg-gradient-accent hover:shadow-glow-accent hover-lift group">
+                <Button className="cursor-pointer bg-gradient-accent hover:shadow-glow-accent hover-lift group">
                   Ver Todos los Artículos
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>

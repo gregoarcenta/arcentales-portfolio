@@ -2,24 +2,28 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { projects } from "@/data/projects";
+import { projectsData, Technologies } from "@/data/projects";
 import { ArrowRight, Zap } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const newProjectData = projectsData.sort((a, b) => (a.id ? -1 : 1));
+
 const Projects = () => {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedTag, setSelectedTag] = useState<Technologies | null>(null);
 
   // Get all unique tags
   const allTags = Array.from(
-    new Set(projects.flatMap((project) => project.technologies))
+    new Set(newProjectData.flatMap((project) => project.technologies)),
   ).sort();
 
   // Filter projects by selected tag
   const filteredProjects = selectedTag
-    ? projects.filter((project) => project.technologies.includes(selectedTag))
-    : projects;
+    ? newProjectData.filter((project) =>
+        project.technologies.includes(selectedTag),
+      )
+    : newProjectData;
 
   return (
     <section className="relative">
@@ -67,19 +71,21 @@ const Projects = () => {
             style={{ animationDelay: `${idx * 150}ms` }}
           >
             {/* Wrap entire card in Link for md+ screens */}
-            <Link href={`/projects/${project.id}`} className="hidden md:block">
+            <Link href={`/projects/${project.slug}`} className="hidden md:block">
               {/* Project image with overlay */}
               <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
-                  fill
+                  height={392}
+                  width={620}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent" />
 
                 {/* Click indicator - only visible on hover */}
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div
+                  className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="bg-primary/90 backdrop-blur-sm text-primary-foreground rounded-full p-2">
                     <ArrowRight className="h-5 w-5" />
                   </div>
@@ -96,7 +102,8 @@ const Projects = () => {
 
               <CardContent className="p-4 md:p-6 space-y-3 md:space-y-4">
                 <div>
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                  <h3
+                    className="text-lg md:text-xl lg:text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-sm md:text-base text-muted-foreground line-clamp-2">

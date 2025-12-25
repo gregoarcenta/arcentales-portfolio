@@ -1,6 +1,8 @@
 import { PageLayout } from "@/components/custom/PageLayout";
 import Projects from "@/components/custom/Projects";
 
+const currentYear = new Date().getFullYear();
+
 const ProjectsPage = () => {
   return (
     <PageLayout>
@@ -9,7 +11,7 @@ const ProjectsPage = () => {
           <div className="mb-8 md:mb-12 animate-fade-in max-w-4xl">
             <div className="inline-block px-4 py-2 rounded-full glass-card border border-primary/30 mb-4 md:mb-6">
               <span className="text-xs md:text-sm font-semibold text-primary">
-                💼 Portfolio 2024
+                💼 Portfolio {currentYear}
               </span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">

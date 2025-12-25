@@ -1,124 +1,153 @@
 export interface Project {
   id: string;
   title: string;
+  slug?: string;
   description: string;
   problem: string;
   keyFeatures: string[];
+  type: ProjectType;
   technologies: Technologies[];
   how: string;
   image: string;
   demoUrl?: string;
+  githubUrl?: string;
   apiUrl?: string;
   blogUrl?: string;
   isCurrent?: boolean;
   mockups: {
     desktop: string;
-    tablet: string;
-    mobile: string;
+    tablet?: string;
+    mobile?: string;
   };
 }
+
+type ProjectType = "frontend" | "backend" | "devops";
 
 export type Technologies =
   | "Angular"
   | "React"
   | "Next.js"
-  | "Tailwind"
+  | "Tailwind CSS"
   | "Bootstrap"
   | "Shadcn"
   | "Node.js"
   | "Nest.js"
   | "TypeScript"
+  | "Type ORM"
+  | "Prisma"
   | "Docker"
   | "PostgreSQL"
   | "SQL server"
   | "Stripe"
   | "Java";
 
-export const projects: Project[] = [
+export const projectsData: Project[] = [
   {
     id: "1",
-    title: "E-Commerce Platform",
+    title: "Api TesloShop",
+    slug: "api-tesloshop",
     description:
-      "Plataforma de comercio electrónico full-stack con panel de administración y pasarela de pagos integrada",
+      "API RESTful desarrollada con NestJS y PostgreSQL, que gestiona productos, favoritos, órdenes, pagos y autenticación para la plataforma de e‑commerce.",
     problem:
-      "Las pequeñas empresas necesitaban una solución escalable y personalizable para vender online sin costos prohibitivos",
+      "Era necesario construir un backend robusto y escalable que soportara la lógica de negocio completa del e‑commerce, incluyendo autenticación, pagos y gestión de productos.",
+    how: "Construido con NestJS y arquitectura modular, usando TypeORM para manejar relaciones en PostgreSQL. Passport se utilizó para autenticación con JWT. Stripe se integró para pagos seguros y pruebas de flujo de compra. Cloudinary se implementó para almacenamiento de imágenes con endpoints dedicados. Swagger documenta todos los endpoints para facilitar pruebas y mantenimiento.",
     keyFeatures: [
-      "Carrito de compras en tiempo real",
-      "Panel de administración completo",
-      "Integración con Stripe",
-      "Sistema de inventario automático",
-      "Notificaciones por email"
+      "Endpoints para crear, actualizar y eliminar productos",
+      "Endpoint toggle para agregar/eliminar favoritos",
+      "Integración con Stripe para pagos y pruebas",
+      "Gestión de órdenes con estados dinámicos según el flujo de compra",
+      "Carrito de compras persistente",
+      "Autenticación con Passport (JWT)",
+      "Integración con Cloudinary para subir, eliminar y visualizar imágenes",
+      "Endpoint de seed para generar productos de prueba rápidamente",
+      "Documentación completa con Swagger",
     ],
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "Tailwind CSS"],
-    how: "Construido con arquitectura modular usando React para el frontend, Node.js/Express para el backend API REST, PostgreSQL como base de datos, y Stripe para procesamiento de pagos. Implementé caché con Redis para optimizar consultas frecuentes.",
-    image: "/placeholder.svg",
-    demoUrl: "https://demo.example.com",
-    apiUrl: "https://api.example.com/docs",
-    blogUrl: "/blog/ecommerce-platform",
+    type: "backend",
+    technologies: ["Nest.js", "TypeScript", "PostgreSQL", "Type ORM", "Stripe", "Node.js"],
+    demoUrl: "https://api.tesloshop.arcentales.dev/api",
+    githubUrl: "https://github.com/gregoarcenta/teslo-shop-backend",
     isCurrent: false,
+    image:
+      "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766694898/portfolio/api_teslo.png",
     mockups: {
-      desktop: "/placeholder.svg",
-      tablet: "/placeholder.svg",
-      mobile: "/placeholder.svg"
-    }
+      desktop:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1736912160/portfolio/rbezwmog2qkqhq7aby5z.png",
+    },
   },
   {
     id: "2",
-    title: "Task Management App",
+    title: "TesloShop - Angular SSR",
+    slug: "tesloshop-angular-ssr",
     description:
-      "Aplicación de gestión de tareas colaborativa con tableros Kanban y chat en tiempo real",
+      "Aplicación de comercio electrónico desarrollada con Angular y SSR, enfocada en carrito de compras, login, favoritos y visualización de productos.",
     problem:
-      "Los equipos remotos necesitaban una herramienta intuitiva para coordinar tareas sin la complejidad de soluciones enterprise",
+      "Quería practicar SSR con Angular y construir una tienda online escalable que resolviera necesidades reales de autenticación, pagos y gestión de productos.",
+    how: "Construido con Angular SSR para renderizado del lado del servidor. Tailwind CSS se utilizó para el diseño responsivo y moderno. El proyecto incluye autenticación, carrito, favoritos y gestión de órdenes, todo integrado en el frontend.",
     keyFeatures: [
-      "Tableros Kanban drag & drop",
-      "Chat en tiempo real",
-      "Asignación de tareas",
-      "Notificaciones push",
-      "Modo offline"
+      "Carrito de compras",
+      "Login funcional y sistema de favoritos",
+      "Pasarela de pagos con Stripe",
+      "Filtros y detalle completo de órdenes (precio, productos, etc)",
+      "Grid de productos con vista detallada en perfil",
+      "Copiar enlaces con metadata gracias al SSR de Angular",
     ],
+    type: "frontend",
     technologies: [
-      "React",
+      "Angular",
+      "Tailwind CSS",
       "TypeScript",
-      "Firebase",
-      "Socket.io",
-      "Framer Motion"
+      "Node.js",
+      "Stripe",
     ],
-    how: "Utilicé Firebase para autenticación y base de datos en tiempo real, Socket.io para el chat, y Framer Motion para animaciones fluidas. Implementé service workers para funcionalidad offline.",
-    image: "/placeholder.svg",
-    demoUrl: "https://tasks-demo.example.com",
-    blogUrl: "/blog/task-management",
-    isCurrent: true,
+    demoUrl: "https://ng.tesloshop.arcentales.dev/",
+    githubUrl: "https://github.com/gregoarcenta/teslo-shop-angular",
+    apiUrl: "https://arcentales.dev/projects/api-tesloshop",
+    blogUrl: "/blog/tesloshop",
+    isCurrent: false,
+    image:
+      "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766695635/portfolio/ng_teslo.png",
     mockups: {
-      desktop: "/placeholder.svg",
-      tablet: "/placeholder.svg",
-      mobile: "/placeholder.svg"
-    }
+      desktop:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766690301/portfolio/ng_teslo_desktop.png",
+      tablet:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766690544/portfolio/ng_teslo_tablet.png",
+      mobile:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766690688/portfolio/ng_teslo_mobile.png",
+    },
   },
   {
     id: "3",
-    title: "AI Content Generator",
+    title: "TesloShop (React)",
+    slug: "tesloshop-react",
     description:
-      "Generador de contenido con IA para redes sociales y blogs usando GPT-4",
+      "Aplicación de comercio electrónico desarrollada con React, que consume la API del e‑commerce y replica las funcionalidades de un proyecto anterior hecho en Angular, pero con un stack moderno basado en React puro.",
     problem:
-      "Creadores de contenido necesitaban herramientas para acelerar la creación sin perder su voz única",
+      "Quería aprender React y practicar las mismas ideas del e‑commerce que hice en Angular anteriormente, pero aplicadas con librerías y patrones propios del ecosistema React.",
+    how: "Construido con React puro, usando TanStack Query para manejar estado asincrónico y sincronizar filtros con la URL. Zustand se utilizó para el estado global de la aplicación. shadcn/ui y Tailwind CSS aportaron una interfaz moderna y consistente. El dashboard protegido por rol de admin demuestra la integración de lógica de acceso en el frontend.",
     keyFeatures: [
-      "Generación de posts optimizados",
-      "Análisis de tono y estilo",
-      "Templates personalizables",
-      "Historial de generaciones",
-      "Exportación múltiple formatos"
+      "Carrito de compras en tiempo real",
+      "Login funcional y sistema de favoritos",
+      "Visualización de órdenes compradas con detalle",
+      "Filtros avanzados de productos (precio, tipo, talla, género, búsqueda y ordenamiento)",
+      "Dashboard de administración protegido por rol",
+      "Panel de productos con lista y creación de nuevos ítems",
     ],
-    technologies: ["Next.js", "OpenAI API", "Prisma", "Tailwind", "Vercel"],
-    how: "Desarrollado en Next.js con rutas API para manejar llamadas a OpenAI. Usé Prisma ORM con PostgreSQL para almacenar templates y generaciones. Implementé rate limiting y caché para optimizar costos de API.",
-    image: "/placeholder.svg",
-    demoUrl: "https://ai-content.example.com",
-    apiUrl: "https://ai-content.example.com/api",
-    blogUrl: "/blog/ai-content-generator",
-    isCurrent: true,
+    type: "frontend",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Stripe", "Node.js"],
+    demoUrl: "https://react.tesloshop.arcentales.dev/",
+    githubUrl: "https://github.com/gregoarcenta/teslo-shop-react",
+    apiUrl: "https://arcentales.dev/projects/api-tesloshop",
+    blogUrl: "/blog/tesloshop-react",
+    isCurrent: false,
+    image:
+      "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766698384/portfolio/react_teslo.png",
     mockups: {
-      desktop: "/placeholder.svg",
-      tablet: "/placeholder.svg",
-      mobile: "/placeholder.svg"
-    }
-  }
+      desktop:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766697813/portfolio/react_teslo_desktop.png",
+      tablet:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766697483/portfolio/react_teslo_tablet.png",
+      mobile:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766697467/portfolio/react_teslo_mobile.png",
+    },
+  },
 ];

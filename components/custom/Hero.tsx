@@ -12,18 +12,21 @@ import {
 } from "lucide-react";
 import { TechBackground } from "./TechBackground";
 import { Button } from "../ui/button";
-import { projects } from "@/data/projects";
+import { projectsData } from "@/data/projects";
 import Image from "next/image";
 import Link from "next/link";
 import { profileData } from "@/data/profile";
 
 const Hero = () => {
   //   const latestPost = blogPosts[0];
-  const latestProject = projects[0];
+  let latestProject = projectsData[projectsData.length - 1];
+  
+  if (latestProject.isCurrent){
+    latestProject = projectsData[projectsData.length - 2];
+  }
   const { phone, github, linkedin } = profileData;
 
   return (
-
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden py-8 px-4 bg-background">
       {/* Tech network background */}
       <TechBackground />
@@ -156,7 +159,7 @@ const Hero = () => {
                     Último Proyecto
                   </h3>
                 </div>
-                <Link href={`/projects/${latestProject.id}`} className="block">
+                <Link href={`/projects/${latestProject.slug}`} className="block">
                   <div className="relative h-24 md:h-32 rounded-lg overflow-hidden mb-2 md:mb-3">
                     <Image
                       src={latestProject.image}

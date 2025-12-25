@@ -1,7 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { projects } from "@/data/projects";
+import { projectsData } from "@/data/projects";
 import { skillsData } from "@/data/skills";
-import { FolderGit2, Code2, Briefcase } from "lucide-react";
+import { Briefcase, Code2, FolderGit2 } from "lucide-react";
+
 const HeroStats = () => {
   // Calculate total technologies
   const totalTechnologies = skillsData.reduce(
@@ -19,7 +20,7 @@ const HeroStats = () => {
                 <FolderGit2 className="h-8 w-8 md:h-10 md:w-10" />
               </div>
               <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
-                {projects.length}+
+                {projectsData.length}+
               </div>
               <h3 className="text-lg md:text-xl font-semibold mb-2">
                 Proyectos
