@@ -23,6 +23,7 @@ export const experienceData: ExperienceItem[] = [
     technologies: [
       "React",
       "Next.js",
+      "TypeScript",
       "Stripe",
       "Tailwind CSS",
       "Shadcn",
@@ -39,7 +40,7 @@ export const experienceData: ExperienceItem[] = [
     description:
       "Como Frontend Developer, fui responsable de crear experiencias de usuario para un sitio de comercio electrónico, utilizando las últimas tecnologías y enfoques de desarrollo web.\n" +
       "Mi enfoque principal estuvo en Angular y tecnologías relacionadas para ofrecer soluciones de alto rendimiento y visualmente atractivas",
-    technologies: ["Angular", "Node.js", "Bootstrap", "Docker"]
+    technologies: ["Angular", "Bootstrap", "Docker", "TypeScript"]
   },
   {
     id: "3",
@@ -53,7 +54,6 @@ export const experienceData: ExperienceItem[] = [
       "Angular",
       "Bootstrap",
       "TypeScript",
-      "Node.js",
       "PostgreSQL"
     ]
   },
