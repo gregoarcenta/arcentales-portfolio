@@ -21,7 +21,7 @@ export interface Project {
   };
 }
 
-type ProjectType = "frontend" | "backend" | "devops";
+type ProjectType = "frontend" | "backend" | "fullstack" | "other";
 
 export type Technologies =
   | "Angular"
@@ -30,8 +30,8 @@ export type Technologies =
   | "Tailwind CSS"
   | "Bootstrap"
   | "Shadcn"
-  | "Node.js"
   | "Nest.js"
+  | "WebSockets"
   | "TypeScript"
   | "Type ORM"
   | "Prisma"
@@ -63,7 +63,7 @@ export const projectsData: Project[] = [
       "Documentación completa con Swagger",
     ],
     type: "backend",
-    technologies: ["Nest.js", "TypeScript", "PostgreSQL", "Type ORM", "Stripe", "Node.js"],
+    technologies: ["Nest.js", "TypeScript", "PostgreSQL", "Type ORM", "Stripe"],
     demoUrl: "https://api.tesloshop.arcentales.dev/api",
     githubUrl: "https://github.com/gregoarcenta/teslo-shop-backend",
     isCurrent: false,
@@ -92,13 +92,7 @@ export const projectsData: Project[] = [
       "Copiar enlaces con metadata gracias al SSR de Angular",
     ],
     type: "frontend",
-    technologies: [
-      "Angular",
-      "Tailwind CSS",
-      "TypeScript",
-      "Node.js",
-      "Stripe",
-    ],
+    technologies: ["Angular", "Tailwind CSS", "TypeScript", "Stripe"],
     demoUrl: "https://ng.tesloshop.arcentales.dev/",
     githubUrl: "https://github.com/gregoarcenta/teslo-shop-angular",
     apiUrl: "https://arcentales.dev/projects/api-tesloshop",
@@ -117,6 +111,43 @@ export const projectsData: Project[] = [
   },
   {
     id: "3",
+    title: "Real-Time Chat App",
+    slug: "real-time-chat",
+    description:
+      "Aplicación de chat en tiempo real construida con NestJS y React. Demuestra la implementación de comunicación por WebSockets para mensajería instantánea.",
+    problem:
+      "Quería aprender a integrar WebSockets en NestJS y React para construir un sistema de mensajería en tiempo real con salas dinámicas.",
+    how: "Construido con NestJS para el backend usando WebSockets y arquitectura modular. El frontend en React maneja la interfaz y estados de conexión de usuarios. Tailwind CSS se utilizó para un diseño moderno y responsivo. El sistema permite crear salas dinámicas y enviar mensajes instantáneos.",
+    keyFeatures: [
+      "Mensajería instantánea con WebSockets",
+      "Salas de chat dinámicas",
+      "Estados de conexión de usuarios en tiempo real",
+      "Interfaz responsiva con React y Tailwind",
+    ],
+    type: "fullstack",
+    technologies: [
+      "Nest.js",
+      "TypeScript",
+      "WebSockets",
+      "React",
+      "Tailwind CSS",
+    ],
+    demoUrl: "https://chat.arcentales.dev/",
+    githubUrl: "https://github.com/gregoarcenta/realtime-chat",
+    isCurrent: false,
+    image:
+      "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766713474/portfolio/chat.png",
+    mockups: {
+      desktop:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766712760/portfolio/chat_desktop.png",
+      tablet:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766712743/portfolio/chat_tablet.png",
+      mobile:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766712729/portfolio/chat_mobile.png",
+    },
+  },
+  {
+    id: "4",
     title: "TesloShop (React)",
     slug: "tesloshop-react",
     description:
@@ -133,7 +164,7 @@ export const projectsData: Project[] = [
       "Panel de productos con lista y creación de nuevos ítems",
     ],
     type: "frontend",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Stripe", "Node.js"],
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Stripe"],
     demoUrl: "https://react.tesloshop.arcentales.dev/",
     githubUrl: "https://github.com/gregoarcenta/teslo-shop-react",
     apiUrl: "https://arcentales.dev/projects/api-tesloshop",

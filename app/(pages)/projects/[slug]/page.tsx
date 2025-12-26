@@ -5,7 +5,7 @@ import { ArrowLeft, CheckCircle2, Code2, ExternalLink, FileText, Github } from "
 import Link from "next/link";
 import Image from "next/image";
 import { projectsData } from "@/data/projects";
-import NotFound from "@/app/(pages)/projects/[slug]/not-found";
+import NotFound from "@/app/not-found";
 
 const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
   const { slug } = await props.params;
@@ -208,7 +208,7 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
                   </Button>
                 )}
 
-                {project.apiUrl && (
+                {project.type === 'frontend' && project.apiUrl && (
                   <Button
                     variant="outline"
                     className="w-full border-accent/50 hover:bg-accent/10"
