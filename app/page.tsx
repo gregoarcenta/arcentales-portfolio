@@ -107,90 +107,90 @@ export default function Page() {
       </section>
 
       {/* Latest Blog Posts */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        {/* Section transition overlays */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-linear-to-b from-background to-transparent pointer-events-none z-20" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-background to-transparent pointer-events-none z-20" />
+      {/*<section className="py-20 px-4 relative overflow-hidden">*/}
+      {/*  /!* Section transition overlays *!/*/}
+      {/*  <div className="absolute top-0 left-0 right-0 h-32 bg-linear-to-b from-background to-transparent pointer-events-none z-20" />*/}
+      {/*  <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-background to-transparent pointer-events-none z-20" />*/}
 
-        {/* Background effect with accent color */}
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-accent/5 to-transparent" />
+      {/*  /!* Background effect with accent color *!/*/}
+      {/*  <div className="absolute inset-0 bg-linear-to-b from-transparent via-accent/5 to-transparent" />*/}
 
-        {/* Animated background */}
-        <div
-          className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-slow"
-          style={{ animationDelay: "0.5s" }}
-        />
+      {/*  /!* Animated background *!/*/}
+      {/*  <div*/}
+      {/*    className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-slow"*/}
+      {/*    style={{ animationDelay: "0.5s" }}*/}
+      {/*  />*/}
 
-        <div className="container mx-auto relative z-10">
-          <AnimatedSection animation="fade">
-            <div className="text-center mb-12">
-              <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">
-                📝 Blog
-              </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                <span className="gradient-text">Últimos Artículos</span>
-              </h2>
-              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Comparto conocimiento, experiencias y aprendizajes del
-                desarrollo web
-              </p>
-            </div>
-          </AnimatedSection>
+      {/*  <div className="container mx-auto relative z-10">*/}
+      {/*    <AnimatedSection animation="fade">*/}
+      {/*      <div className="text-center mb-12">*/}
+      {/*        <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">*/}
+      {/*          📝 Blog*/}
+      {/*        </Badge>*/}
+      {/*        <h2 className="text-4xl md:text-5xl font-bold mb-4">*/}
+      {/*          <span className="gradient-text">Últimos Artículos</span>*/}
+      {/*        </h2>*/}
+      {/*        <p className="text-muted-foreground text-lg max-w-2xl mx-auto">*/}
+      {/*          Comparto conocimiento, experiencias y aprendizajes del*/}
+      {/*          desarrollo web*/}
+      {/*        </p>*/}
+      {/*      </div>*/}
+      {/*    </AnimatedSection>*/}
 
-          {/* <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">
-              {latestPosts.map((post, idx) => (
-                <AnimatedSection
-                  key={post.id}
-                  animation="scale"
-                  delay={idx * 100}
-                >
-                  <Link to={`/blog/${post.id}`} className="block h-full">
-                    <Card className="glass-card border-accent/20 overflow-hidden hover-lift group h-full transform transition-all duration-500 hover:border-accent/40">
-                      <div className="relative h-40 overflow-hidden">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
-                        {post.tags && post.tags.length > 0 && (
-                          <Badge className="absolute top-3 right-3 bg-accent text-white animate-bounce-in">
-                            {post.tags[0]}
-                          </Badge>
-                        )}
-                      </div>
-                      <CardContent className="p-6">
-                        <h3 className="text-lg font-bold mb-2 group-hover:text-accent transition-colors line-clamp-2">
-                          {post.title}
-                        </h3>
-                        <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                          {post.excerpt}
-                        </p>
-                        <div className="flex items-center justify-between text-xs text-muted-foreground">
-                          <span>
-                            {new Date(post.date).toLocaleDateString("es-ES")}
-                          </span>
-                          <span>{post.readTime}</span>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </AnimatedSection>
-              ))}
-            </div> */}
+      {/*    /!* <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-8">*/}
+      {/*        {latestPosts.map((post, idx) => (*/}
+      {/*          <AnimatedSection*/}
+      {/*            key={post.id}*/}
+      {/*            animation="scale"*/}
+      {/*            delay={idx * 100}*/}
+      {/*          >*/}
+      {/*            <Link to={`/blog/${post.id}`} className="block h-full">*/}
+      {/*              <Card className="glass-card border-accent/20 overflow-hidden hover-lift group h-full transform transition-all duration-500 hover:border-accent/40">*/}
+      {/*                <div className="relative h-40 overflow-hidden">*/}
+      {/*                  <img*/}
+      {/*                    src={post.image}*/}
+      {/*                    alt={post.title}*/}
+      {/*                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"*/}
+      {/*                  />*/}
+      {/*                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/60 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />*/}
+      {/*                  {post.tags && post.tags.length > 0 && (*/}
+      {/*                    <Badge className="absolute top-3 right-3 bg-accent text-white animate-bounce-in">*/}
+      {/*                      {post.tags[0]}*/}
+      {/*                    </Badge>*/}
+      {/*                  )}*/}
+      {/*                </div>*/}
+      {/*                <CardContent className="p-6">*/}
+      {/*                  <h3 className="text-lg font-bold mb-2 group-hover:text-accent transition-colors line-clamp-2">*/}
+      {/*                    {post.title}*/}
+      {/*                  </h3>*/}
+      {/*                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">*/}
+      {/*                    {post.excerpt}*/}
+      {/*                  </p>*/}
+      {/*                  <div className="flex items-center justify-between text-xs text-muted-foreground">*/}
+      {/*                    <span>*/}
+      {/*                      {new Date(post.date).toLocaleDateString("es-ES")}*/}
+      {/*                    </span>*/}
+      {/*                    <span>{post.readTime}</span>*/}
+      {/*                  </div>*/}
+      {/*                </CardContent>*/}
+      {/*              </Card>*/}
+      {/*            </Link>*/}
+      {/*          </AnimatedSection>*/}
+      {/*        ))}*/}
+      {/*      </div> *!/*/}
 
-          <AnimatedSection animation="scale">
-            <div className="text-center">
-              <Link href="/blog">
-                <Button className="cursor-pointer bg-gradient-accent hover:shadow-glow-accent hover-lift group">
-                  Ver Todos los Artículos
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      {/*    <AnimatedSection animation="scale">*/}
+      {/*      <div className="text-center">*/}
+      {/*        <Link href="/blog">*/}
+      {/*          <Button className="cursor-pointer bg-gradient-accent hover:shadow-glow-accent hover-lift group">*/}
+      {/*            Ver Todos los Artículos*/}
+      {/*            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />*/}
+      {/*          </Button>*/}
+      {/*        </Link>*/}
+      {/*      </div>*/}
+      {/*    </AnimatedSection>*/}
+      {/*  </div>*/}
+      {/*</section>*/}
 
       {/* Currently Learning */}
       <section className="py-20 px-4 relative overflow-hidden">
