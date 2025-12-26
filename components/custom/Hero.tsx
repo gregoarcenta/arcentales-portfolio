@@ -68,34 +68,32 @@ const Hero = () => {
       </div>
 
       {/* Subtle gradient overlay */}
-      <div
-        className="absolute inset-0 bg-linear-to-b from-background/70 via-background/40 to-background/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-background/70 via-background/40 to-background/70 pointer-events-none" />
 
       {/* Animated grid */}
-      <div
-        className="absolute inset-0 bg-[linear-gradient(rgba(66,153,225,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(66,153,225,.03)_1px,transparent_1px)] bg-size[size:80px_80px] md:bg-size[size:100px_100px] mask-[radial-gradient(ellipse_80%_60%_at_50%_50%,#000,transparent)] opacity-40" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(66,153,225,.03)_1px,transparent_1px),linear-gradient(90deg,rgba(66,153,225,.03)_1px,transparent_1px)] bg-size[size:80px_80px] md:bg-size[size:100px_100px] mask-[radial-gradient(ellipse_80%_60%_at_50%_50%,#000,transparent)] opacity-40" />
 
-      <div className="container mx-auto relative z-10 max-w-7xl mt-2 md:mt-14">
+      <div className="container mx-auto relative z-10 max-w-7xl mt-11 md:mt-14">
         <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Left Column - Main Intro */}
           <div className="lg:col-span-2 space-y-6 md:space-y-8 animate-fade-in">
-            <div className="inline-block">
-              <span
-                className="glass-card px-6 py-2 rounded-full text-sm font-medium text-secondary inline-flex items-center gap-2">
+            <div className="hidden md:inline-block">
+              <span className="glass-card px-6 py-2 rounded-full text-sm font-medium text-secondary inline-flex items-center gap-2">
                 <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
                 Disponible para proyectos freelance
               </span>
             </div>
 
-            <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground max-w-4xl">
-              <span className="block gradient-text">Full Stack Developer.</span>
-              <span className="block text-foreground mt-2">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground max-w-4xl">
+              <span className="text-center md:text-start block gradient-text">
+                Full Stack Developer.
+              </span>
+              <span className="text-center md:text-start block text-foreground mt-2">
                 Transformando ideas en software rentable.
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="text-center md:text-start text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
               Experiencia en soluciones web optimizadas para escalar y crecer
               rápido.
             </p>
@@ -128,7 +126,7 @@ const Hero = () => {
               </Button>
             </div>
 
-            <div className="flex items-center gap-3 md:gap-4 pt-2 md:pt-4">
+            <div className="flex items-center justify-center md:justify-start gap-3 md:gap-4 pt-2 md:pt-4">
               <a
                 href={github}
                 target="_blank"
@@ -149,7 +147,7 @@ const Hero = () => {
           </div>
 
           {/* Right Column - Latest Activity */}
-          <div className="space-y-4 md:space-y-6 animate-slide-up">
+          <div className=" md:block space-y-4 md:space-y-6 animate-slide-up">
             {/* Latest Project */}
             {latestProject && (
               <div className="glass-card p-4 md:p-6 rounded-2xl border-2 border-primary/30 hover-lift group">
@@ -159,18 +157,21 @@ const Hero = () => {
                     Último Proyecto
                   </h3>
                 </div>
-                <Link href={`/projects/${latestProject.slug}`} className="block">
+                <Link
+                  href={`/projects/${latestProject.slug}`}
+                  className="block"
+                >
                   <div className="relative h-24 md:h-32 rounded-lg overflow-hidden mb-2 md:mb-3">
                     <Image
                       src={latestProject.image}
                       alt={latestProject.title}
+                      loading={"eager"}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-background to-transparent" />
                   </div>
-                  <h4
-                    className="font-bold text-sm md:text-base text-foreground mb-1 md:mb-2 group-hover:text-primary transition-colors">
+                  <h4 className="font-bold text-sm md:text-base text-foreground mb-1 md:mb-2 group-hover:text-primary transition-colors">
                     {latestProject.title}
                   </h4>
                   <p className="text-xs md:text-sm text-muted-foreground line-clamp-2">
@@ -210,7 +211,7 @@ const Hero = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="pt-8 md:pt-12 animate-bounce text-center hidden md:block">
+        <div className="pt-8 md:pt-12 animate-bounce text-center hidden lg:block">
           <div className="w-6 h-10 border-2 border-primary/50 rounded-full mx-auto flex items-start justify-center p-2">
             <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
           </div>

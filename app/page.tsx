@@ -67,7 +67,8 @@ export default function Page() {
                     <Image
                       src={project.image}
                       alt={project.title}
-                      fill
+                      height={1960}
+                      width={1080}
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent opacity-90 group-hover:opacity-70 transition-opacity" />
