@@ -1,6 +1,12 @@
 import Contact from "@/components/custom/Contact";
+import { Metadata } from "next";
 
-const ContactPage = () => {
+export const metadata: Metadata = {
+  title: "Contacto",
+  description: "Ponte en contacto conmigo para proyectos o colaboraciones",
+};
+
+export default function ContactPage() {
   return (
     <div className="min-h-screen pt-16 md:pt-20">
       <div className="container mx-auto px-4 py-8 md:py-12 max-w-7xl">
@@ -37,5 +43,3 @@ const ContactPage = () => {
     </div>
   );
 };
-
-export default ContactPage;

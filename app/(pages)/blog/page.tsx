@@ -1,4 +1,10 @@
 import { Hammer } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Artículos sobre desarrollo web y tecnología",
+};
 
 export default function BlogPage() {
   return (

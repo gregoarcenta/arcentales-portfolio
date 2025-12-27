@@ -6,9 +6,25 @@ import Link from "next/link";
 import Image from "next/image";
 import { projectsData } from "@/data/projects";
 import NotFound from "@/app/not-found";
+import { Metadata } from "next";
 
-const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
-  const { slug } = await props.params;
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const {slug} = await params
+
+  const proyecto = projectsData.find((project) => project.slug === slug)
+
+  return {
+    title: proyecto?.title,
+    description: `Detalles del proyecto ${proyecto?.title}`,
+  };
+}
+
+export default async function ProjectDetailPage({ params }: Props) {
+  const { slug } = await params;
   const project = projectsData.find((project) => project.slug === slug);
 
   // Get related blog posts for this project
@@ -20,14 +36,18 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
       <div className="container mx-auto px-4 py-6 md:py-12 max-w-7xl">
         {/* Back button */}
         <Link href="/projects">
-          <Button variant="outline" className="cursor-pointer mb-4 md:mb-8 group">
+          <Button
+            variant="outline"
+            className="cursor-pointer mb-4 md:mb-8 group"
+          >
             <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
             Volver a Proyectos
           </Button>
         </Link>
 
         {/* Hero Image */}
-        <div className="relative h-64 md:h-80 lg:h-96 rounded-2xl md:rounded-3xl overflow-hidden mb-6 md:mb-12 animate-fade-in">
+        <div
+          className="relative h-64 md:h-80 lg:h-96 rounded-2xl md:rounded-3xl overflow-hidden mb-6 md:mb-12 animate-fade-in">
           <Image
             src={project.image}
             alt={project.title}
@@ -84,7 +104,7 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
             <Card
               className="glass-card border-primary/20 animate-slide-up"
               style={{
-                animationDelay: "100ms",
+                animationDelay: "100ms"
               }}
             >
               <CardContent className="p-4 md:p-6 lg:p-8">
@@ -108,7 +128,7 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
             <Card
               className="glass-card border-primary/20 animate-slide-up"
               style={{
-                animationDelay: "150ms",
+                animationDelay: "150ms"
               }}
             >
               <CardContent className="p-4 md:p-6 lg:p-8">
@@ -125,7 +145,8 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
                           <span className="font-medium">Vista Desktop</span>
                         </div>
                       )}
-                      <div className="relative rounded-xl overflow-hidden border border-primary/20 bg-muted/5 group shadow-xl">
+                      <div
+                        className="relative rounded-xl overflow-hidden border border-primary/20 bg-muted/5 group shadow-xl">
                         <Image
                           src={project.mockups.desktop}
                           alt={`${project.title} - Desktop`}
@@ -145,7 +166,8 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
                           <div className="w-3 h-3 rounded-full bg-accent/50" />
                           <span className="font-medium">Vista Tablet</span>
                         </div>
-                        <div className="relative rounded-xl overflow-hidden border border-primary/20 bg-muted/5 group shadow-lg">
+                        <div
+                          className="relative rounded-xl overflow-hidden border border-primary/20 bg-muted/5 group shadow-lg">
                           <Image
                             src={project.mockups.tablet}
                             alt={`${project.title} - Tablet`}
@@ -161,7 +183,8 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
                           <div className="w-3 h-3 rounded-full bg-secondary/50" />
                           <span className="font-medium">Vista Mobile</span>
                         </div>
-                        <div className="relative rounded-4xl overflow-hidden border-4 border-primary/20 bg-muted/10 shadow-2xl group max-w-65 mx-auto md:mx-0">
+                        <div
+                          className="relative rounded-4xl overflow-hidden border-4 border-primary/20 bg-muted/10 shadow-2xl group max-w-65 mx-auto md:mx-0">
                           <Image
                             src={project.mockups.mobile}
                             alt={`${project.title} - Mobile`}
@@ -184,7 +207,7 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
             <Card
               className="glass-card border-primary/20 z-10 animate-slide-up"
               style={{
-                animationDelay: "200ms",
+                animationDelay: "200ms"
               }}
             >
               <CardContent className="p-4 md:p-6 space-y-3 md:space-y-4">
@@ -208,7 +231,7 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
                   </Button>
                 )}
 
-                {project.type === 'frontend' && project.apiUrl && (
+                {project.type === "frontend" && project.apiUrl && (
                   <Button
                     variant="outline"
                     className="w-full border-accent/50 hover:bg-accent/10"
@@ -249,7 +272,7 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
               <Card
                 className="glass-card border-accent/20 bg-accent/5 animate-slide-up"
                 style={{
-                  animationDelay: "300ms",
+                  animationDelay: "300ms"
                 }}
               >
                 <CardContent className="p-4 md:p-6">
@@ -290,7 +313,7 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
             <Card
               className="glass-card border-primary/20 animate-slide-up"
               style={{
-                animationDelay: "400ms",
+                animationDelay: "400ms"
               }}
             >
               <CardContent className="p-4 md:p-6">
@@ -314,6 +337,4 @@ const ProjectDetailPage = async (props: PageProps<"/projects/[slug]">) => {
       </div>
     </div>
   );
-};
-
-export default ProjectDetailPage;
+}

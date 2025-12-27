@@ -1,10 +1,16 @@
+import { Metadata } from "next";
+import Image from "next/image";
 import Experience from "@/components/custom/Experience";
 import { PageLayout } from "@/components/custom/PageLayout";
 import Skills from "@/components/custom/Skills";
-import Image from "next/image";
 import { profileData } from "@/data/profile";
 
-const AboutPage = () => {
+export const metadata: Metadata = {
+  title: "Sobre Mí",
+  description: "Conoce más sobre mi trayectoria como desarrollador"
+};
+
+export default function AboutPage() {
   const { name } = profileData;
   return (
     <PageLayout variant="secondary">
@@ -91,5 +97,3 @@ const AboutPage = () => {
     </PageLayout>
   );
 };
-
-export default AboutPage;

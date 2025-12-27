@@ -1,9 +1,15 @@
 import { PageLayout } from "@/components/custom/PageLayout";
 import Projects from "@/components/custom/Projects";
+import { Metadata } from "next";
 
-const currentYear = new Date().getFullYear();
 
-const ProjectsPage = () => {
+export const metadata: Metadata = {
+  title: "Proyectos",
+  description: "Proyectos destacados de desarrollo web full stack"
+};
+
+export default function ProjectsPage() {
+  const currentYear = new Date().getFullYear();
   return (
     <PageLayout>
       <div className="min-h-screen pt-16 md:pt-20">
@@ -29,5 +35,3 @@ const ProjectsPage = () => {
     </PageLayout>
   );
 };
-
-export default ProjectsPage;
