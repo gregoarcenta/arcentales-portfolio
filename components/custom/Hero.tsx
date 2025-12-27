@@ -167,6 +167,7 @@ const Hero = () => {
                       alt={latestProject.title}
                       loading={"eager"}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-background to-transparent" />

@@ -52,7 +52,7 @@ export const skillsData: SkillCategory[] = [
 export const currentlyLearning: Skill[] = [
   { name: "Java", icon: "☕", category: "learning" },
   { name: "Spring Boot", icon: "🍃", category: "learning" },
-  { name: "GraphQL", icon: "◐", category: "learning" },
-  { name: "Redis", icon: "🔴", category: "learning" },
+  // { name: "GraphQL", icon: "◐", category: "learning" },
+  // { name: "Redis", icon: "🔴", category: "learning" },
   { name: "Microservicios", icon: "🔧", category: "learning" }
 ];

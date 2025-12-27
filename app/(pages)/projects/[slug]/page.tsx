@@ -13,13 +13,56 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const {slug} = await params
+  const { slug } = await params;
 
-  const proyecto = projectsData.find((project) => project.slug === slug)
+  const project = projectsData.find((project) => project.slug === slug);
+
+  if (!project) {
+    return {
+      title: "Proyecto no encontrado | Gregory Arcentales",
+      description: "El proyecto solicitado no existe o fue removido.",
+      robots: {
+        index: false,
+        follow: false
+      }
+    };
+  }
+
+  const title = `${project.title} | Proyecto ${project.type}`;
+  const description = `Proyecto desarrollado por Gregory Arcentales utilizando ${project.technologies.join(
+    ", "
+  )}. Enfocado en buenas prácticas, rendimiento y arquitectura moderna.`;
+
+  const url = `https://arcentales.dev/projects/${project.slug}`;
 
   return {
-    title: proyecto?.title,
-    description: `Detalles del proyecto ${proyecto?.title}`,
+    title,
+    description,
+    keywords: [
+      project.title,
+      "portfolio developer",
+      `${project.type} project`,
+      "web development",
+      ...project.technologies,
+      "Gregory Arcentales",
+    ],
+    openGraph: {
+      type: "article",
+      title,
+      description,
+      url,
+      images: [
+        {
+          url: project.image,
+          width: 1200,
+          height: 630,
+          alt: `Proyecto ${project.title} desarrollado por Gregory Arcentales`,
+        },
+      ],
+    },
+    alternates: {
+      canonical: url,
+    },
   };
 }
 
@@ -52,6 +95,7 @@ export default async function ProjectDetailPage({ params }: Props) {
             src={project.image}
             alt={project.title}
             fill
+            loading={"eager"}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent" />
