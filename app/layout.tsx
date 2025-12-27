@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   // ========== INFO BASICA ==========
   title: {
     default: "Gregory Arcentales | Full Stack Developer",
-    template: "%s | Gregory Arcentales"
+    template: "%s | Gregory Arcentales",
   },
 
   description:
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "Spring Boot",
     "portafolio",
     "developer",
-    "Ecuador"
+    "Ecuador",
   ],
   authors: [{ name: "Gregory Arcentales", url: "https://arcentales.dev" }],
   creator: "Gregory Arcentales",
@@ -35,11 +35,11 @@ export const metadata: Metadata = {
   // ========== URL Y CANONICAL ==========
   // metadataBase: new URL("https://tudominio.com"),
   alternates: {
-    canonical: "/",
+    canonical: "https://arcentales.dev",
     languages: {
       "es-EC": "/es",
-      "en-US": "/en"
-    }
+      "en-US": "/en",
+    },
   },
 
   // ========== OPEN GRAPH (Facebook, LinkedIn, WhatsApp, Discord) ==========
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "Alexander Arcentales - Full Stack Developer",
-        type: "image/png"
-      }
-    ]
+        type: "image/png",
+      },
+    ],
   },
   // ========== TWITTER/X ==========
   // twitter: {
@@ -79,16 +79,16 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon.ico" },
       { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" }
+      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }]
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
 
   // ========== CATEGORIZACIÓN ==========
   category: "technology",
 
   // ========== OTROS ==========
-  referrer: "origin-when-cross-origin"
+  referrer: "origin-when-cross-origin",
 
   // ========== ARCHIVES (si tienes un blog con archivo de posts) ==========
   // archives: ["/blog/2024", "/blog/2023"],
@@ -102,7 +102,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="es">
     <body className={`${inter.className} ${spaceGrotesk.className}`}>
     <Navbar />
     <main>{children}</main>
