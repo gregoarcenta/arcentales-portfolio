@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `${project.type} project`,
       "web development",
       ...project.technologies,
-      "Gregory Arcentales",
+      "Gregory Arcentales"
     ],
     openGraph: {
       type: "article",
@@ -56,13 +56,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: project.image,
           width: 1200,
           height: 630,
-          alt: `Proyecto ${project.title} desarrollado por Gregory Arcentales`,
-        },
-      ],
+          alt: `Proyecto ${project.title} desarrollado por Gregory Arcentales`
+        }
+      ]
     },
     alternates: {
-      canonical: url,
-    },
+      canonical: url
+    }
   };
 }
 
@@ -270,7 +270,9 @@ export default async function ProjectDetailPage({ params }: Props) {
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      Ver Demo
+                      {project.type === "backend"
+                        ? "Ver documentación del API"
+                        : "Ver Demo"}
                     </a>
                   </Button>
                 )}
