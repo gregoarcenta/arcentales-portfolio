@@ -15,8 +15,8 @@ export interface Project {
   apiUrl?: string;
   blogUrl?: string;
   isCurrent?: boolean;
-  mockups: {
-    desktop: string;
+  mockups?: {
+    desktop?: string;
     tablet?: string;
     mobile?: string;
   };
@@ -40,7 +40,8 @@ export type Technologies =
   | "PostgreSQL"
   | "SQL server"
   | "Stripe"
-  | "Java";
+  | "Java"
+  | "Spring Boot";
 
 export const projectsData: Project[] = [
   {
@@ -182,5 +183,27 @@ export const projectsData: Project[] = [
       mobile:
         "https://res.cloudinary.com/dy7luvgd5/image/upload/v1766697467/portfolio/react_teslo_mobile.png",
     },
+  },
+  {
+    id: "5",
+    title: "ScreenMatch",
+    slug: "screenmatch",
+    description:
+      "Mi primer proyecto con Spring Boot para aprender los fundamentos del desarrollo backend con Java. Una aplicación que consume la API de OMDb para obtener y mostrar información categorizada de películas y series.",
+    problem:
+      "Estoy aprendiendo Java y Spring Boot desde cero, y necesitaba un proyecto práctico para entender cómo funcionan las APIs REST, la persistencia de datos, el consumo de APIs externas.",
+    how: "La aplicación implementa Spring Boot para crear una API REST que consume la API de OMDb. Utiliza Spring Data JPA y consultas JPQL para persistir y consultar información en PostgreSQL.",
+    keyFeatures: [
+      "Consumo de la API externa OMDb",
+      "Visualización de contenido categorizado (Top 5, últimos lanzamientos, detalles)",
+      "Persistencia y consultas con JPA/JPQL",
+      "Mapeo de entidades y relaciones en PostgreSQL",
+    ],
+    type: "fullstack",
+    technologies: ["Java", "Spring Boot", "PostgreSQL"],
+    githubUrl: "https://github.com/gregoarcenta/screenmatch",
+    isCurrent: true,
+    image:
+      "https://res.cloudinary.com/dy7luvgd5/image/upload/v1767125705/portfolio/screenmatch.png",
   },
 ];

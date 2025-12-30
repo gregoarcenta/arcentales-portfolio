@@ -1,10 +1,14 @@
+import { Activity } from "react";
+import { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
+  AlertTriangle,
   ArrowLeft,
   CheckCircle2,
   Code2,
+  Construction,
   ExternalLink,
   FileText,
   Github,
@@ -13,7 +17,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { projectsData } from "@/data/projects";
 import NotFound from "@/app/not-found";
-import { Metadata } from "next";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -95,6 +98,45 @@ export default async function ProjectDetailPage({ params }: Props) {
           </Button>
         </Link>
 
+        {/* Development Status Banner */}
+        <Activity mode={project.isCurrent ? "visible" : "hidden"}>
+          <div className="animate-fade-in mb-6 md:mb-8">
+            <div className="relative overflow-hidden rounded-xl border border-amber-500/30 bg-linear-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 p-4 md:p-6">
+              {/* Animated background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,currentColor_10px,currentColor_11px)] text-amber-500" />
+              </div>
+
+              <div className="relative flex flex-col items-start gap-4 md:flex-row md:items-center">
+                <div className="shrink-0 rounded-full border border-amber-500/30 bg-amber-500/20 p-3">
+                  <Construction className="h-6 w-6 animate-pulse text-amber-500 md:h-8 md:w-8" />
+                </div>
+
+                <div className="flex-1 space-y-2">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-lg font-bold text-amber-500 md:text-xl">
+                      Proyecto en Desarrollo
+                    </h3>
+                    <Badge className="border-amber-500/30 bg-amber-500/20 text-xs text-amber-500">
+                      En Progreso
+                    </Badge>
+                  </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
+                    Este proyecto está actualmente en desarrollo activo. La
+                    información, capturas de pantalla y funcionalidades
+                    mostradas pueden estar incompletas o sujetas a cambios.
+                  </p>
+                </div>
+
+                <div className="hidden shrink-0 items-center gap-2 text-amber-500/70 lg:flex">
+                  <AlertTriangle className="h-5 w-5" />
+                  <span className="text-sm font-medium">Info parcial</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Activity>
+
         {/* Hero Image */}
         <div className="animate-fade-in relative mb-6 h-64 overflow-hidden rounded-2xl md:mb-12 md:h-80 md:rounded-3xl lg:h-96">
           <Image
@@ -123,10 +165,10 @@ export default async function ProjectDetailPage({ params }: Props) {
           </div>
         </div>
 
+        {/* Main Content */}
         <div className="grid gap-6 md:gap-8 lg:grid-cols-3">
-          {/* Main Content */}
+          {/* Overview */}
           <div className="space-y-6 md:space-y-8 lg:col-span-2">
-            {/* Overview */}
             <Card className="glass-card border-primary/20 animate-slide-up">
               <CardContent className="space-y-4 p-4 md:space-y-6 md:p-6 lg:p-8">
                 <div>
@@ -164,101 +206,110 @@ export default async function ProjectDetailPage({ params }: Props) {
             </Card>
 
             {/* Key Features */}
-            <Card
-              className="glass-card border-primary/20 animate-slide-up"
-              style={{
-                animationDelay: "100ms",
-              }}
+            <Activity
+              mode={project.keyFeatures.length > 0 ? "visible" : "hidden"}
             >
-              <CardContent className="p-4 md:p-6 lg:p-8">
-                <h2 className="mb-4 text-xl font-bold md:mb-6 md:text-2xl">
-                  Funcionalidades Clave
-                </h2>
-                <div className="grid gap-3 md:gap-4">
-                  {project.keyFeatures.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2 md:gap-3">
-                      <CheckCircle2 className="text-primary mt-0.5 h-5 w-5 shrink-0 md:h-6 md:w-6" />
-                      <p className="text-muted-foreground text-sm md:text-base">
-                        {feature}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              <Card
+                className="glass-card border-primary/20 animate-slide-up"
+                style={{
+                  animationDelay: "100ms",
+                }}
+              >
+                <CardContent className="p-4 md:p-6 lg:p-8">
+                  <h2 className="mb-4 text-xl font-bold md:mb-6 md:text-2xl">
+                    Funcionalidades Clave
+                  </h2>
+                  <div className="grid gap-3 md:gap-4">
+                    {project.keyFeatures.map((feature, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-start gap-2 md:gap-3"
+                      >
+                        <CheckCircle2 className="text-primary mt-0.5 h-5 w-5 shrink-0 md:h-6 md:w-6" />
+                        <p className="text-muted-foreground text-sm md:text-base">
+                          {feature}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </Activity>
 
             {/* Project Screenshots/Mockups */}
-            <Card
-              className="glass-card border-primary/20 animate-slide-up"
-              style={{
-                animationDelay: "150ms",
-              }}
-            >
-              <CardContent className="p-4 md:p-6 lg:p-8">
-                <h2 className="mb-4 text-xl font-bold md:mb-6 md:text-2xl">
-                  Capturas del Proyecto
-                </h2>
-                <div className="space-y-6">
-                  {/* Desktop mockup */}
-                  {project.mockups?.desktop && (
-                    <div className="space-y-3">
-                      {project.type === "frontend" && (
-                        <div className="text-muted-foreground flex items-center gap-2 text-sm">
-                          <div className="bg-primary/50 h-3 w-3 rounded-full" />
-                          <span className="font-medium">Vista Desktop</span>
-                        </div>
-                      )}
-                      <div className="border-primary/20 bg-muted/5 group relative overflow-hidden rounded-xl border shadow-xl">
-                        <Image
-                          src={project.mockups.desktop}
-                          alt={`${project.title} - Desktop`}
-                          width={1920}
-                          height={1080}
-                          className="h-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.01]"
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Tablet and Mobile */}
-                  {project.mockups?.tablet && project.mockups?.mobile && (
-                    <div className="flex flex-col items-start gap-10 md:flex-row">
-                      <div className="w-full flex-1 space-y-3">
-                        <div className="text-muted-foreground flex items-center gap-2 text-sm">
-                          <div className="bg-accent/50 h-3 w-3 rounded-full" />
-                          <span className="font-medium">Vista Tablet</span>
-                        </div>
-                        <div className="border-primary/20 bg-muted/5 group relative overflow-hidden rounded-xl border shadow-lg">
+            <Activity mode={project.mockups ? "visible" : "hidden"}>
+              <Card
+                className="glass-card border-primary/20 animate-slide-up"
+                style={{
+                  animationDelay: "150ms",
+                }}
+              >
+                <CardContent className="p-4 md:p-6 lg:p-8">
+                  <h2 className="mb-4 text-xl font-bold md:mb-6 md:text-2xl">
+                    Capturas del Proyecto
+                  </h2>
+                  <div className="space-y-6">
+                    {/* Desktop mockup */}
+                    {project.mockups?.desktop && (
+                      <div className="space-y-3">
+                        {project.type !== "backend" && (
+                          <div className="text-muted-foreground flex items-center gap-2 text-sm">
+                            <div className="bg-primary/50 h-3 w-3 rounded-full" />
+                            <span className="font-medium">Vista Desktop</span>
+                          </div>
+                        )}
+                        <div className="border-primary/20 bg-muted/5 group relative overflow-hidden rounded-xl border shadow-xl">
                           <Image
-                            src={project.mockups.tablet}
-                            alt={`${project.title} - Tablet`}
-                            width={768}
-                            height={1024}
-                            className="h-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                            src={project.mockups.desktop}
+                            alt={`${project.title} - Desktop`}
+                            width={1920}
+                            height={1080}
+                            className="h-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.01]"
                           />
                         </div>
                       </div>
+                    )}
 
-                      <div className="w-full flex-none space-y-3 md:w-auto">
-                        <div className="text-muted-foreground flex items-center gap-2 text-sm">
-                          <div className="bg-secondary/50 h-3 w-3 rounded-full" />
-                          <span className="font-medium">Vista Mobile</span>
+                    {/* Tablet and Mobile */}
+                    {project.mockups?.tablet && project.mockups?.mobile && (
+                      <div className="flex flex-col items-start gap-10 md:flex-row">
+                        <div className="w-full flex-1 space-y-3">
+                          <div className="text-muted-foreground flex items-center gap-2 text-sm">
+                            <div className="bg-accent/50 h-3 w-3 rounded-full" />
+                            <span className="font-medium">Vista Tablet</span>
+                          </div>
+                          <div className="border-primary/20 bg-muted/5 group relative overflow-hidden rounded-xl border shadow-lg">
+                            <Image
+                              src={project.mockups.tablet}
+                              alt={`${project.title} - Tablet`}
+                              width={768}
+                              height={1024}
+                              className="h-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                            />
+                          </div>
                         </div>
-                        <div className="border-primary/20 bg-muted/10 group relative mx-auto max-w-65 overflow-hidden rounded-4xl border-4 shadow-2xl md:mx-0">
-                          <Image
-                            src={project.mockups.mobile}
-                            alt={`${project.title} - Mobile`}
-                            width={390}
-                            height={844}
-                            className="h-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.05]"
-                          />
+
+                        <div className="w-full flex-none space-y-3 md:w-auto">
+                          <div className="text-muted-foreground flex items-center gap-2 text-sm">
+                            <div className="bg-secondary/50 h-3 w-3 rounded-full" />
+                            <span className="font-medium">Vista Mobile</span>
+                          </div>
+                          <div className="border-primary/20 bg-muted/10 group relative mx-auto max-w-65 overflow-hidden rounded-4xl border-4 shadow-2xl md:mx-0">
+                            <Image
+                              src={project.mockups.mobile}
+                              alt={`${project.title} - Mobile`}
+                              width={390}
+                              height={844}
+                              className="h-auto w-full object-contain transition-transform duration-500 group-hover:scale-[1.05]"
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </Activity>
           </div>
 
           {/* Sidebar */}
@@ -386,7 +437,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                   {project.technologies.map((tech) => (
                     <Badge
                       key={tech}
-                      className="bg-primary/10 text-primary border-primary/30 text-xs"
+                      className="bg-primary/10 text-primary border-primary/30 cursor-default text-xs"
                     >
                       {tech}
                     </Badge>

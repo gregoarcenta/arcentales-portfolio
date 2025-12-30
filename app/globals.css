@@ -1,6 +1,6 @@
 /* Tailwind CSS */
 @import "tailwindcss";
-@import "tw-animate-css";
+/*@import "tw-animate-css";*/
 
 /* Configuración del tema con @theme */
 @theme {
@@ -42,7 +42,6 @@
     --radius-sm: 0.5rem;
     --radius-md: 0.625rem;
     --radius-lg: 0.75rem;
-
 }
 
 /* Variables CSS personalizadas (para gradientes y sombras) */
@@ -162,47 +161,6 @@
         transform: scale(1);
     }
 
-    .aurora-bg {
-        position: relative;
-        overflow: hidden;
-        background: linear-gradient(125deg,
-                #1a1f3a 0%,
-                hsl(222 47% 13%) 30%,
-                #1a1f3a 50%,
-                hsl(222 47% 13%) 70%,
-                #1a1f3a 100%);
-    }
-
-    .aurora-bg::before,
-    .aurora-bg::after {
-        content: '';
-        position: absolute;
-        width: 150%;
-        height: 150%;
-        top: -25%;
-        left: -25%;
-        opacity: 0.6;
-        mix-blend-mode: screen;
-        animation: aurora 15s ease-in-out infinite;
-    }
-
-    .aurora-bg::before {
-        background:
-            radial-gradient(circle at 20% 30%, rgba(14, 165, 233, 0.5) 0%, transparent 35%),
-            radial-gradient(circle at 80% 70%, rgba(16, 185, 129, 0.4) 0%, transparent 40%),
-            radial-gradient(circle at 40% 80%, rgba(124, 147, 195, 0.35) 0%, transparent 45%),
-            radial-gradient(circle at 90% 20%, rgba(56, 189, 248, 0.3) 0%, transparent 35%);
-    }
-
-    .aurora-bg::after {
-        animation-delay: -7.5s;
-        animation-duration: 20s;
-        background:
-            radial-gradient(circle at 60% 20%, rgba(16, 185, 129, 0.45) 0%, transparent 40%),
-            radial-gradient(circle at 30% 60%, rgba(14, 165, 233, 0.4) 0%, transparent 45%),
-            radial-gradient(circle at 70% 90%, rgba(56, 189, 248, 0.35) 0%, transparent 40%);
-    }
-
     .section-gradient {
         position: relative;
     }
@@ -236,19 +194,12 @@
         will-change: transform;
     }
 
-    @media (max-width: 768px) {
-
-        .aurora-bg::before,
-        .aurora-bg::after {
-            animation-duration: 30s;
-            will-change: transform;
-        }
+    .animate-pulse-slow {
+        animation: pulse-slow 4s ease-in-out infinite;
     }
 
-    @media (prefers-reduced-motion: reduce) {
 
-        .aurora-bg::before,
-        .aurora-bg::after,
+    @media (prefers-reduced-motion: reduce) {
         .scroll-fade-in,
         .scroll-slide-left,
         .scroll-slide-right,
@@ -261,155 +212,11 @@
     }
 }
 
-/* Keyframes personalizados */
-@keyframes aurora {
-    0%, 100% {
-        transform: translate(0, 0) rotate(0deg) scale(1);
-        opacity: 0.6;
-    }
-
-    25% {
-        transform: translate(15%, -12%) rotate(90deg) scale(1.15);
-        opacity: 0.8;
-    }
-
-    50% {
-        transform: translate(-8%, 15%) rotate(180deg) scale(1.05);
-        opacity: 0.7;
-    }
-
-    75% {
-        transform: translate(-15%, -8%) rotate(270deg) scale(1.2);
-        opacity: 0.9;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-@keyframes gradient {
-    0%, 100% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-}
-
-@keyframes shimmer {
-    from {
-        background-position: -200% 0;
-    }
-
-    to {
-        background-position: 200% 0;
-    }
-}
-
-@keyframes pulse {
+@keyframes pulse-slow {
     0%, 100% {
         opacity: 1;
     }
-
     50% {
-        opacity: 0.7;
+        opacity: 0.5;
     }
-}
-
-@keyframes bounceIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.3);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
-
-    70% {
-        transform: scale(0.9);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-}
-
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-}
-
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-        animation: logo-spin infinite 20s linear;
-    }
-}
-
-.card {
-    padding: 2em;
-}
-
-.read-the-docs {
-    color: #888;
 }
