@@ -8,6 +8,7 @@ export interface Project {
   type: ProjectType;
   technologies: Technologies[];
   how: string;
+  adminCredentials?: string;
   image: string;
   demoUrl?: string;
   githubUrl?: string;
@@ -155,6 +156,7 @@ export const projectsData: Project[] = [
     problem:
       "Quería aprender React y practicar las mismas ideas del e‑commerce que hice en Angular anteriormente, pero aplicadas con librerías y patrones propios del ecosistema React.",
     how: "Construido con React puro, usando TanStack Query para manejar estado asincrónico y sincronizar filtros con la URL. Zustand se utilizó para el estado global de la aplicación. shadcn/ui y Tailwind CSS aportaron una interfaz moderna y consistente. El dashboard protegido por rol de admin demuestra la integración de lógica de acceso en el frontend.",
+    adminCredentials: "admin@admin.com | Admin123",
     keyFeatures: [
       "Carrito de compras en tiempo real",
       "Login funcional y sistema de favoritos",
