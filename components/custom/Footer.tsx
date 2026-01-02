@@ -8,21 +8,21 @@ const navItems = [
   { name: "Inicio", path: "/" },
   { name: "Proyectos", path: "/projects" },
   { name: "Blog", path: "/blog" },
-  { name: "Sobre Mí", path: "/about" }
+  { name: "Sobre Mí", path: "/about" },
 ];
 
 export default function Footer() {
   const { name, email, github, linkedin, phone } = profileData;
 
   return (
-    <footer className="relative border-t border-border/40 bg-card/30 backdrop-blur-xl">
+    <footer className="border-border/40 bg-card/30 relative border-t backdrop-blur-xl">
       <div className="container mx-auto px-4 pt-12 pb-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <Code2 className="h-6 w-6 text-primary" />
-              <span className="font-bold text-xl">{name}</span>
+              <Code2 className="text-primary h-6 w-6" />
+              <span className="text-xl font-bold">{name}</span>
             </div>
             <p className="text-muted-foreground text-sm">
               Full Stack Developer especializado en crear soluciones web
@@ -32,13 +32,13 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-semibold mb-4 text-foreground">Navegación</h3>
+            <h3 className="text-foreground mb-4 font-semibold">Navegación</h3>
             <ul className="space-y-2">
               {navItems.map((link) => (
                 <li key={link.path}>
                   <Link
                     href={link.path}
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    className="text-muted-foreground hover:text-primary text-sm transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -49,14 +49,14 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold mb-4 text-foreground">Contacto</h3>
+            <h3 className="text-foreground mb-4 font-semibold">Contacto</h3>
             <ul className="space-y-2">
               <li>
                 <a
                   href={`https://wa.me/${phone}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className="text-muted-foreground hover:text-primary text-sm transition-colors"
                 >
                   Enviar Mensaje
                 </a>
@@ -64,7 +64,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${email}`}
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className="text-muted-foreground hover:text-primary text-sm transition-colors"
                 >
                   {email}
                 </a>
@@ -74,13 +74,13 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h3 className="font-semibold mb-4 text-foreground">Social</h3>
+            <h3 className="text-foreground mb-4 font-semibold">Social</h3>
             <div className="flex gap-3">
               <a
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card p-2 rounded-lg hover:bg-primary/10 hover:border-primary/50 transition-all"
+                className="glass-card hover:bg-primary/10 hover:border-primary/50 rounded-lg p-2 transition-all"
               >
                 <Github className="h-5 w-5" />
               </a>
@@ -88,13 +88,13 @@ export default function Footer() {
                 href={linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card p-2 rounded-lg hover:bg-primary/10 hover:border-primary/50 transition-all"
+                className="glass-card hover:bg-primary/10 hover:border-primary/50 rounded-lg p-2 transition-all"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
                 href={`mailto:${email}`}
-                className="glass-card p-2 rounded-lg hover:bg-primary/10 hover:border-primary/50 transition-all"
+                className="glass-card hover:bg-primary/10 hover:border-primary/50 rounded-lg p-2 transition-all"
               >
                 <Mail className="h-5 w-5" />
               </a>
@@ -103,7 +103,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-border/40 text-center">
+        <div className="border-border/40 border-t pt-6 text-center">
           <p className="text-muted-foreground text-sm">
             © {currentYear} {name}. Todos los derechos reservados.
           </p>

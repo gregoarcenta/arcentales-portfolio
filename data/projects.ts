@@ -12,7 +12,6 @@ export interface Project {
   image: string;
   demoUrl?: string;
   githubUrl?: string;
-  apiUrl?: string;
   blogUrl?: string;
   isCurrent?: boolean;
   mockups?: {
@@ -97,7 +96,6 @@ export const projectsData: Project[] = [
     technologies: ["Angular", "Tailwind CSS", "TypeScript", "Stripe"],
     demoUrl: "https://ng.tesloshop.arcentales.dev/",
     githubUrl: "https://github.com/gregoarcenta/teslo-shop-angular",
-    apiUrl: "https://arcentales.dev/projects/api-tesloshop",
     blogUrl: "/blog/tesloshop",
     isCurrent: false,
     image:
@@ -170,7 +168,6 @@ export const projectsData: Project[] = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Stripe"],
     demoUrl: "https://react.tesloshop.arcentales.dev/",
     githubUrl: "https://github.com/gregoarcenta/teslo-shop-react",
-    apiUrl: "https://arcentales.dev/projects/api-tesloshop",
     blogUrl: "/blog/tesloshop-react",
     isCurrent: false,
     image:

@@ -7,7 +7,6 @@ import {
   AlertTriangle,
   ArrowLeft,
   CheckCircle2,
-  Code2,
   Construction,
   ExternalLink,
   FileText,
@@ -316,7 +315,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           <div className="h-fit space-y-4 md:space-y-6 lg:sticky lg:top-24">
             {/* Action buttons */}
             <Card
-              className="glass-card border-primary/20 animate-slide-up z-10"
+              className="glass-card border-primary/20 animate-slide-up z-10 hidden lg:block"
               style={{
                 animationDelay: "200ms",
               }}
@@ -340,23 +339,6 @@ export default async function ProjectDetailPage({ params }: Props) {
                       {project.type === "backend"
                         ? "Ver documentación del API"
                         : "Ver Demo"}
-                    </a>
-                  </Button>
-                )}
-
-                {project.type === "frontend" && project.apiUrl && (
-                  <Button
-                    variant="outline"
-                    className="border-accent/50 hover:bg-accent/10 w-full"
-                    asChild
-                  >
-                    <a
-                      href={project.apiUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Code2 className="mr-2 h-4 w-4" />
-                      Ver API
                     </a>
                   </Button>
                 )}
@@ -446,6 +428,43 @@ export default async function ProjectDetailPage({ params }: Props) {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Sticky Action Bar */}
+      <div className="bg-background/95 border-primary/20 animate-slide-up fixed right-0 bottom-0 left-0 z-50 border-t p-3 backdrop-blur-lg lg:hidden">
+        <div className="flex gap-2">
+          {project.demoUrl && (
+            <Button
+              className="bg-gradient-primary hover:shadow-glow-primary flex-1"
+              asChild
+            >
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink className="mr-2 h-4 w-4" />
+                Ver Demo
+              </a>
+            </Button>
+          )}
+          {project.githubUrl && (
+            <Button
+              variant="outline"
+              className="border-primary/30 hover:bg-primary/10 flex-1"
+              asChild
+            >
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="mr-2 h-4 w-4" />
+                Código en GitHub
+              </a>
+            </Button>
+          )}
         </div>
       </div>
     </div>

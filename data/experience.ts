@@ -28,8 +28,8 @@ export const experienceData: ExperienceItem[] = [
       "Tailwind CSS",
       "Shadcn",
       "Docker",
-      "Nest.js"
-    ]
+      "Nest.js",
+    ],
   },
   {
     id: "2",
@@ -40,7 +40,7 @@ export const experienceData: ExperienceItem[] = [
     description:
       "Como Frontend Developer, fui responsable de crear experiencias de usuario para un sitio de comercio electrónico, utilizando las últimas tecnologías y enfoques de desarrollo web.\n" +
       "Mi enfoque principal estuvo en Angular y tecnologías relacionadas para ofrecer soluciones de alto rendimiento y visualmente atractivas",
-    technologies: ["Angular", "Bootstrap", "Docker", "TypeScript"]
+    technologies: ["Angular", "Bootstrap", "Docker", "TypeScript"],
   },
   {
     id: "3",
@@ -50,12 +50,7 @@ export const experienceData: ExperienceItem[] = [
     period: "2021 - 2022",
     description:
       "Durante mis prácticas preprofesionales en la Facultad de Ciencias de la Educación de la Universidad Laica Eloy Alfaro de Manabí, contribuí activamente al desarrollo de un aplicativo web para la elaboración y actualización de documentos de adaptaciones curriculares (DIAC).",
-    technologies: [
-      "Angular",
-      "Bootstrap",
-      "TypeScript",
-      "PostgreSQL"
-    ]
+    technologies: ["Angular", "Bootstrap", "TypeScript", "PostgreSQL"],
   },
   {
     id: "4",
@@ -66,14 +61,8 @@ export const experienceData: ExperienceItem[] = [
     description:
       "Como Desarrollador Full Stack, tuve la responsabilidad de participar en un proyecto clave relacionado con el desarrollo de interfaces web y formularios. Mi rol consistió en diseñar y desarrollar interfaces de usuario eficientes y atractivas, así como gestionar la comunicación entre el frontend y el backend del sistema.\n" +
       "Este emocionante proyecto involucró tecnologías como Docker, Java, JavaScript, Bootstrap y Angular.\n",
-    technologies: [
-      "Angular",
-      "Bootstrap",
-      "Java",
-      "Docker",
-      "SQL server"
-    ]
-  }
+    technologies: ["Angular", "Bootstrap", "Java", "Docker", "SQL server"],
+  },
 ];
 
 export const certificatesData: ExperienceItem[] = [
@@ -83,7 +72,8 @@ export const certificatesData: ExperienceItem[] = [
     title: "Docker - Guía práctica de uso para desarrolladores",
     company: "Devtalles",
     period: "2023",
-    description: "Dominio de la contenedorización de aplicaciones, creación de imágenes y servicios con Docker Compose para entornos de desarrollo y producción.",
+    description:
+      "Dominio de la contenedorización de aplicaciones, creación de imágenes y servicios con Docker Compose para entornos de desarrollo y producción.",
     certificateUrl: "https://frontendmasters.com",
   },
   {
@@ -92,7 +82,8 @@ export const certificatesData: ExperienceItem[] = [
     title: "ReactiveX - RxJS",
     company: "Devtalles",
     period: "2024",
-    description: "Programación reactiva y manejo de flujos de datos asíncronos complejos, optimizando el rendimiento y la respuesta de aplicaciones JavaScript/TypeScript.",
+    description:
+      "Programación reactiva y manejo de flujos de datos asíncronos complejos, optimizando el rendimiento y la respuesta de aplicaciones JavaScript/TypeScript.",
     certificateUrl: "https://cursos.devtalles.com/certificates/jcqu0uprib",
   },
   {
@@ -101,7 +92,8 @@ export const certificatesData: ExperienceItem[] = [
     title: "Angular Avanzado: Lleva tus bases al siguiente nivel - MEAN",
     company: "Udemy",
     period: "2024",
-    description: "Implementación de arquitecturas robustas con el stack MEAN, profundizando en lazy loading, Guards, interceptores y despliegue de aplicaciones escalables.",
+    description:
+      "Implementación de arquitecturas robustas con el stack MEAN, profundizando en lazy loading, Guards, interceptores y despliegue de aplicaciones escalables.",
     certificateUrl:
       "https://www.udemy.com/certificate/UC-42c27ef1-c341-4a95-93f8-2dfe5c4bf9aa/",
   },
@@ -111,7 +103,8 @@ export const certificatesData: ExperienceItem[] = [
     title: "SQL de cero: Tu guía práctica con PostgreSQL",
     company: "Devtalles",
     period: "2024",
-    description: "Diseño y administración de bases de datos relacionales, optimización de consultas complejas, uso de funciones, triggers y procedimientos almacenados.",
+    description:
+      "Diseño y administración de bases de datos relacionales, optimización de consultas complejas, uso de funciones, triggers y procedimientos almacenados.",
     certificateUrl: "https://cursos.devtalles.com/certificates/o7c6td1t9r",
   },
   {
@@ -120,7 +113,8 @@ export const certificatesData: ExperienceItem[] = [
     title: "Nest: Desarrollo Backend escalable con Node",
     company: "Devtalles",
     period: "2024",
-    description: "Construcción de APIs modulares y escalables bajo arquitectura limpia, integrando TypeORM, validaciones, y seguridad.",
+    description:
+      "Construcción de APIs modulares y escalables bajo arquitectura limpia, integrando TypeORM, validaciones, y seguridad.",
     certificateUrl: "https://cursos.devtalles.com/certificates/kwufposps0",
   },
   {
@@ -129,7 +123,8 @@ export const certificatesData: ExperienceItem[] = [
     title: "Java: trabajando con lambdas, streams y Spring Framework",
     company: "Alura Latam",
     period: "2025",
-    description: "Modernización de código Java utilizando programación funcional y aprovechamiento del ecosistema de Spring para el desarrollo de aplicaciones empresariales.",
+    description:
+      "Modernización de código Java utilizando programación funcional y aprovechamiento del ecosistema de Spring para el desarrollo de aplicaciones empresariales.",
     certificateUrl:
       "https://app.aluracursos.com/certificate/a2331744-de13-404e-b074-9799628c2293?lang",
   },
@@ -139,7 +134,8 @@ export const certificatesData: ExperienceItem[] = [
     title: "Java: persistencia de datos y consultas con Spring Data JPA",
     company: "Alura Latam",
     period: "2025",
-    description: "Gestión eficiente de la capa de datos mediante JPA e Hibernate, implementando repositorios, relaciones complejas y optimización de acceso a datos.",
+    description:
+      "Gestión eficiente de la capa de datos mediante JPA e Hibernate, implementando repositorios, relaciones complejas y optimización de acceso a datos.",
     certificateUrl:
       "https://app.aluracursos.com/certificate/52601d1f-fdce-4cb1-b1c9-7f5020f8b024?lang",
   },
@@ -149,8 +145,20 @@ export const certificatesData: ExperienceItem[] = [
     title: "Foundational C# with Microsoft",
     company: "FreeCodeCamp.org",
     period: "2025",
-    description: "Fundamentos sólidos de C# y .NET, incluyendo lógica de programación, manejo de colecciones y programación orientada a objetos certificados por Microsoft.",
+    description:
+      "Fundamentos sólidos de C# y .NET, incluyendo lógica de programación, manejo de colecciones y programación orientada a objetos certificados por Microsoft.",
     certificateUrl:
       "https://freecodecamp.org/certification/gregoarcenta/foundational-c-sharp-with-microsoft",
+  },
+  {
+    id: "9",
+    type: "certificate",
+    title: "React: De cero a Experto",
+    company: "Devtalles",
+    period: "2025",
+    description:
+      "Desarrollo de aplicaciones modernas con React. Manejo de componentes funcionales, hooks, context API, integración con librerías externas y despliegue.",
+    certificateUrl:
+      "https://www.udemy.com/certificate/UC-def1a8aa-726c-443a-a5f3-833a18f8d98a",
   },
 ];
