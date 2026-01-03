@@ -161,4 +161,15 @@ export const certificatesData: ExperienceItem[] = [
     certificateUrl:
       "https://www.udemy.com/certificate/UC-def1a8aa-726c-443a-a5f3-833a18f8d98a",
   },
+  {
+    id: "10",
+    type: "certificate",
+    title: "Java: creando tu primera API y conectándola al Front End",
+    company: "Alura Latam",
+    period: "2026",
+    description:
+      "Fundamentos de APIs REST con Spring Boot, estructura MVC, uso de DTOs y conexión con aplicaciones front-end.",
+    certificateUrl:
+      "https://app.aluracursos.com/certificate/1a0a9017-707f-4a8a-a1a7-b4377414d2cc?lang",
+  },
 ];
