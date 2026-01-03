@@ -186,10 +186,10 @@ export const projectsData: Project[] = [
     title: "ScreenMatch",
     slug: "screenmatch",
     description:
-      "Mi primer proyecto con Spring Boot para aprender los fundamentos del desarrollo backend con Java. Una aplicación que consume la API de OMDb para obtener y mostrar información categorizada de películas y series.",
+      "Mi primer proyecto con Spring Boot para aprender los fundamentos del desarrollo backend con Java. Es una aplicación que consume la API de OMDb para obtener y mostrar información categorizada de películas y series.",
     problem:
-      "Estoy aprendiendo Java y Spring Boot desde cero, y necesitaba un proyecto práctico para entender cómo funcionan las APIs REST, la persistencia de datos, el consumo de APIs externas.",
-    how: "La aplicación implementa Spring Boot para crear una API REST que consume la API de OMDb. Utiliza Spring Data JPA y consultas JPQL para persistir y consultar información en PostgreSQL.",
+      "Al iniciar mi aprendizaje en Java y Spring Boot, necesitaba un proyecto práctico que me permitiera entender cómo funcionan las APIs REST, la persistencia de datos y el consumo de APIs externas. ScreenMatch surge como una solución para aplicar estos conceptos en un caso real.",
+    how: "La aplicación implementa Spring Boot para crear una API REST que consume la API de OMDb. Utiliza Spring Data JPA y consultas JPQL para persistir y consultar información en PostgreSQL. Además, se desplegó en un contenedor Docker para simular un entorno productivo.",
     keyFeatures: [
       "Consumo de la API externa OMDb",
       "Visualización de contenido categorizado (Top 5, últimos lanzamientos, detalles)",
@@ -198,9 +198,18 @@ export const projectsData: Project[] = [
     ],
     type: "fullstack",
     technologies: ["Java", "Spring Boot", "PostgreSQL"],
+    demoUrl: "https://screenmatch.arcentales.dev/",
     githubUrl: "https://github.com/gregoarcenta/screenmatch",
-    isCurrent: true,
+    isCurrent: false,
     image:
       "https://res.cloudinary.com/dy7luvgd5/image/upload/v1767125705/portfolio/screenmatch.png",
+    mockups: {
+      desktop:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1767401433/portfolio/screenmatch_desktop.png",
+      tablet:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1767401491/portfolio/screenmatch_tablet.png",
+      mobile:
+        "https://res.cloudinary.com/dy7luvgd5/image/upload/v1767401479/portfolio/screenmatch_mobile.png",
+    },
   },
 ];
